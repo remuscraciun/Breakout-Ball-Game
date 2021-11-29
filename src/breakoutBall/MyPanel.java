@@ -30,11 +30,9 @@ public class MyPanel extends JPanel {
 
                 if ( e.getKeyCode() == 37 ) {
                     paddle.setX(paddle.getX()-10);
-                    System.out.println(paddle.getX());
                 }
                 if ( e.getKeyCode() == 39 ) {
                     paddle.setX(paddle.getX()+10);
-                    System.out.println(paddle.getX());
                 }
             }
 
