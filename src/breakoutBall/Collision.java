@@ -1,46 +1,31 @@
 package breakoutBall;
+import java.awt.*;
 
 public class Collision {
 
-    Ball ball = new Ball();
-    public boolean isCollisionY(Ball ball, Paddle paddle) {
+    public void isCollision(Ball ball, Paddle paddle) {
 
-        boolean check = false;
-        if (ball.getX() > paddle.getX() && ball.getX() < paddle.getX() + paddle.getWidth()) {
+        int bX = ball.getX();                           //ball X coordinate
+        int bY = ball.getY();                           //ball Y coordinate
+        int bR = ball.getRadius();                      //ball radius
+        int pX = paddle.getX();                         //object X coordinate
+        int pY = paddle.getY();                         //object X coordinate
+        int pW = paddle.getWidth();                     //object width
+        int pH = paddle.getHeight();                    //object height
 
-            if (ball.getY() + ball.getRadius() > paddle.getY()) {
-                check = true;
+        Rectangle object = new Rectangle(pX,pY,pW,pH);
+        Rectangle myBall = new Rectangle(bX,bY,bR,bR);
+
+        if (myBall.intersects(object))
+        {
+            if ( bY > pY ) ball.setBallVelocityX(ball.getBallVelocityX()*-1);
+            else if ( bY < pY ) ball.setBallVelocityY(ball.getBallVelocityY()*-1);
+            else {
+                ball.setBallVelocityY(ball.getBallVelocityY()*-1);
+                ball.setBallVelocityX(ball.getBallVelocityX()*-1);
             }
         }
-        return check;
+
     }
 
-    public boolean isCollisionX(Ball ball, Paddle paddle) {
-
-        boolean check = false;
-        if (ball.getX() < paddle.getX() + paddle.getWidth() && ball.getY() > paddle.getY() && ball.getY() < paddle.getY() + paddle.getHeight()) {
-
-            if ( ball.getX() + ball.getRadius() > paddle.getX()) {
-                check = true;
-            }
-        }
-        return check;
-    }
-
-//    public boolean isCollisionXY (Ball ball, Paddle paddle) {
-//
-//        if ( ball.getX() + ball.getRadius() == paddle.getX() && ball.getY() == paddle.getY() ) {
-//            return true;
-//        }
-//        else if ( ball.getX() + ball.getRadius() == paddle.getX() + paddle.getWidth() && ball.getY() == paddle.getY() ) {
-//            return true;
-//        }
-//        else if ( ball.getX() + ball.getRadius() == paddle.getX() + paddle.getWidth() && ball.getY() == paddle.getY() + paddle.getHeight()  ) {
-//            return true;
-//        }
-//        else if ( ball.getX() + ball.getRadius() == paddle.getX() && ball.getY() == paddle.getY() + paddle.getHeight() ) {
-//            return true;
-//        }
-//        else return false;
-//    }
 }

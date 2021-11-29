@@ -2,7 +2,9 @@ package breakoutBall;
 
 import javax.swing.*;
 
-public class MyFrame extends JFrame {
+
+
+public class MyFrame extends JFrame  {
 
     MyFrame(String title) {
 
@@ -14,4 +16,5 @@ public class MyFrame extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
+
 }

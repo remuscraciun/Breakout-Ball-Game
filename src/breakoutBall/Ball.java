@@ -2,8 +2,8 @@ package breakoutBall;
 
 public class Ball {
 
-    private int x = 198;
-    private int y = 463;
+    private int x = 0;
+    private int y = 0;
     private int ballVelocityX = 1;
     private int ballVelocityY = 1;
 
@@ -20,7 +20,7 @@ public class Ball {
         this.y = y;
     }
     public int getRadius() {
-        return 30;
+        return 20;
     }
     public int getBallVelocityX() {
         return ballVelocityX;
